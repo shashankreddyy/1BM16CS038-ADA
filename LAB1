@@ -1,0 +1,30 @@
+# include<iostream>
+#include<iomanip>
+using namespace std;
+int bs_sqroot(int num){
+	int mid,root,start=1,end=num;
+	if(num==0||num==1)
+		return num;
+	else{
+		while(start<=end){
+			mid=(start+end)/2;
+			if(mid*mid==num)
+				return mid;
+			else if(mid*mid>num)
+				end=mid-1;
+			else{
+				start=mid+1;
+				root=mid;
+			}
+		}
+	return root;	
+	}
+}
+int main(){
+	int num,root;
+	cout<<"enter number";
+	cin>>num;
+	root=bs_sqroot(num);
+	cout<<endl<<"root: "<<root<<endl;
+	return 0;
+}		
